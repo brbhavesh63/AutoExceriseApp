@@ -3,6 +3,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.expected_conditions import visibility_of_element_located
+from selenium.webdriver.support.wait import WebDriverWait
 
 from pageObjects.ProductPage import ProductPage
 
@@ -26,6 +28,10 @@ class HomePage:
     productprice_xpath = 'h2'
     btn_scrollup_id = 'scrollUp'
     btn_delete_xpath = "//*[text()=' Delete Account']"
+    div_category_xpath = '//*[@id="accordian"]/div'
+    div_allcategory_xpath = 'div/h4/a'
+    div_subcategory_xpath = 'div/div/ul/li/a'
+    div_fullsubcategory_xpath = '//*[@id="accordian"]/div/div/div/ul/li/a'
 
 
 
@@ -110,6 +116,27 @@ class HomePage:
 
     def clickDelete(self):
         self.driver.find_element(By.XPATH, self.btn_delete_xpath).click()
+
+    def validateCategoryVisible(self):
+        category = self.driver.find_element(By.XPATH,self.div_category_xpath)
+        assert category.is_displayed()
+
+    def clickWomenCategory(self):
+        all_category = self.driver.find_elements(By.XPATH, self.div_category_xpath)
+        for category in all_category:
+            category_ele = category.find_element(By.XPATH,self.div_allcategory_xpath)
+            category_txt = category_ele.text
+            print(category_txt)
+            if category_txt == "WOMEN":
+                category_ele.click()
+                wait = WebDriverWait(self.driver , 10)
+                wait.until(visibility_of_element_located((By.XPATH,self.div_fullsubcategory_xpath)))
+                subcategory_ele = category.find_element(By.XPATH, self.div_subcategory_xpath)
+                subcategory_txt = subcategory_ele.text
+                print(subcategory_txt)
+                if subcategory_txt == 'DRESS':
+                    subcategory_ele.click()
+                    break
 
 
 

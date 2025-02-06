@@ -5,6 +5,8 @@ from threading import activeCount
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.expected_conditions import visibility_of_element_located
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class ProductPage:
@@ -21,7 +23,11 @@ class ProductPage:
     btn_continue_xpath = "//*[text()='Continue Shopping']"
     productprice_xpath = 'h2'
     btn_scrollup_id = 'scrollUp'
-
+    h2_filterProductTitle_xpath = '(//h2)[3]'
+    div_category_xpath = '//*[@id="accordian"]/div'
+    div_allcategory_xpath = 'div/h4/a'
+    div_subcategory_xpath = 'div/div/ul/li/a'
+    div_fullsubcategory_xpath = '(//*[@id="accordian"]/div/div/div/ul/li/a)[4]'
 
 
     def __init__(self,driver):
@@ -117,4 +123,29 @@ class ProductPage:
     def scrollUp(self):
         self.driver.find_element(By.ID, self.btn_scrollup_id).click()
 
+    def validateTitleOfFilteredProduct(self):
+        h2_productTitle_ele = self.driver.find_element(By.XPATH,self.h2_filterProductTitle_xpath)
+        product_title_txt = h2_productTitle_ele.text
+        assert product_title_txt == 'WOMEN - DRESS PRODUCTS'
 
+    def clickMenCategory(self):
+        all_category = self.driver.find_elements(By.XPATH, self.div_category_xpath)
+        for category in all_category:
+            category_ele = category.find_element(By.XPATH,self.div_allcategory_xpath)
+            category_txt = category_ele.text
+            print(category_txt)
+            if category_txt == "MEN":
+                category_ele.click()
+                wait = WebDriverWait(self.driver , 10)
+                wait.until(visibility_of_element_located((By.XPATH,self.div_fullsubcategory_xpath)))
+                subcategory_ele = category.find_element(By.XPATH, self.div_subcategory_xpath)
+                subcategory_txt = subcategory_ele.text
+                print(subcategory_txt)
+                if subcategory_txt == 'TSHIRTS':
+                    subcategory_ele.click()
+                    break
+
+
+    def validateSelectedFilterProductPageTitle(self):
+        act_title = self.driver.title
+        assert act_title == 'Automation Exercise - Tshirts Products'
