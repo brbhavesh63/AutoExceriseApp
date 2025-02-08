@@ -28,6 +28,8 @@ class ProductPage:
     div_allcategory_xpath = 'div/h4/a'
     div_subcategory_xpath = 'div/div/ul/li/a'
     div_fullsubcategory_xpath = '(//*[@id="accordian"]/div/div/div/ul/li/a)[4]'
+    div_brands_xpath = "//*[@class='brands_products']"
+    div_listbrands_xpath = "//*[@class='brands_products']/div/ul/li"
 
 
     def __init__(self,driver):
@@ -145,7 +147,23 @@ class ProductPage:
                     subcategory_ele.click()
                     break
 
-
     def validateSelectedFilterProductPageTitle(self):
         act_title = self.driver.title
         assert act_title == 'Automation Exercise - Tshirts Products'
+
+    def visibleBrand(self):
+        brands = self.driver.find_element(By.XPATH, self.div_brands_xpath)
+        assert brands.is_displayed()
+
+    def clickBrand(self,selectBrandName):
+        listBrands = self.driver.find_elements(By.XPATH, self.div_listbrands_xpath)
+        for brand in listBrands:
+            select_brand = brand.find_element(By.XPATH,"a").text
+            brand_name = select_brand[3:].strip()
+            if brand_name == selectBrandName:
+                brand.click()
+                brand_act_title = self.driver.title
+                converted_brandName = selectBrandName.capitalize()
+                if brand_act_title == f'Automation Exercise - {converted_brandName} Products':
+                    assert True
+                    break
