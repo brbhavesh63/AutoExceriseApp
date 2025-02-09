@@ -15,6 +15,11 @@ class ProductDetailPage:
     link_viewcart_xpath = '//*[text()="View Cart"]'
     modal_cart_xpath = '//*[@class="modal-content"]'
     btn_addcart_xpath = '//*[@class="btn btn-default cart"]'
+    txt_reviewname_id = 'name'
+    txt_reviewemail_id = 'email'
+    txt_reviewdesc_id = 'review'
+    btn_submit_id = 'button-review'
+    txt_success_xpath = "//*[text()='Thank you for your review.']"
 
 
     def __init__(self,driver):
@@ -79,7 +84,18 @@ class ProductDetailPage:
         wait.until(expected_conditions.visibility_of_element_located((By.XPATH, self.modal_cart_xpath)))
         self.driver.find_element(By.XPATH,self.link_viewcart_xpath).click()
 
+    def sendReview(self,reviewname,reviewemail,reviewdesc):
+        self.driver.find_element(By.ID, self.txt_reviewname_id).send_keys(reviewname)
+        self.driver.find_element(By.ID,self.txt_reviewemail_id).send_keys(reviewemail)
+        self.driver.find_element(By.ID,self.txt_reviewdesc_id).send_keys(reviewdesc)
+        self.driver.find_element(By.ID,self.btn_submit_id).click()
 
+    def verifySuccessReview(self):
+        success_msg = self.driver.find_element(By.XPATH,self.txt_success_xpath).text
+        if success_msg == 'Thank you for your review.':
+            assert True
+        else:
+            assert False
 
     # def verifyProductDetailsAdded(self):
     #     productname = self.driver.find_element(By.XPATH,self.lbl_productname_xpath).text

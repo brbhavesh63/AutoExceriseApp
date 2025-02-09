@@ -1,4 +1,5 @@
 from Utilities.readproperties import readConfig
+from pageObjects.CartPage import CartPage
 from pageObjects.HomePage import HomePage
 from pageObjects.ProductPage import ProductPage
 from pageObjects.SearchProductPage import SearchProductPage
@@ -23,3 +24,5 @@ class Test_009_SearchProduct:
         self.hp.scrolltoProduct()
         self.spp.addSearchedProductsToCart()
         self.hp.clickCart()
+        self.cp = CartPage(self.driver)
+        self.cp.validateSearchedProductAddedToCart()

@@ -145,3 +145,20 @@ class readConfig:
     def getExpireYear():
         expireyear = config.get('card info','expireyear')
         return expireyear
+
+    ############################# ADD REVIEW ##########################
+
+    @staticmethod
+    def getReviewerName():
+        reviewerName = config.get('review info','name')
+        return reviewerName
+
+    @staticmethod
+    def getReviewerEmail():
+        reviewerEmail = config.get('review info','email')
+        return reviewerEmail
+
+    @staticmethod
+    def getReviewerDesc():
+        reviewerDesc = config.get('review info','review')
+        return reviewerDesc

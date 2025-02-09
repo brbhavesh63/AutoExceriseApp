@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from pageObjects.ProductDetailPage import ProductDetailPage
 from pageObjects.ProductPage import ProductPage
+from pageObjects.SearchProductPage import SearchProductPage
 
 
 class CartPage:
@@ -24,6 +25,7 @@ class CartPage:
         self.driver = setup
         # self.cart_product_details = []
         self.pp = ProductPage(self.driver)
+        self.spp = SearchProductPage(self.driver)
 
     def verifyTitle(self):
         act_title = self.driver.title
@@ -102,6 +104,16 @@ class CartPage:
         else:
             assert False
 
-
-
-
+    def validateSearchedProductAddedToCart(self):
+        cart_product_details = []
+        for i in range(1, self.getNoOfRows() + 1):
+            cartTable = self.driver.find_element(By.XPATH, self.tbl_cartinfo_xpath)
+            productName = cartTable.find_element(By.XPATH, f'tbody/tr[{i}]/td[2]/h4').text
+            cart_product_details.append((productName))
+            print(cart_product_details)
+            # cartProductList = cart_product_details.append[productName,productPrice]
+        print(f"This is my cart information: {cart_product_details}")
+        if self.spp.products_name == cart_product_details:
+            assert True
+        else:
+            assert False
