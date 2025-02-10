@@ -1,17 +1,92 @@
-<h1 align="center">Hi 👋, I'm Bhavesh</h1>
-<h3 align="center">A passionate QA Engineer from India</h3>
+# 🚀 AutomationExercise - Selenium Test Automation
 
-- 🔭 I’m currently working on [automating the E-Commerce Automation Exercise platform. Using selenium with pytest framework.](https://automationexercise.com)
+## 📌 Overview
+AutomationExercise is a web-based e-commerce platform designed for QA engineers to practice automation testing. This project implements an advanced **Selenium-based test automation framework** in **Python** using **Pytest**. The framework is structured for **modularity, reusability, and scalability**, enabling efficient end-to-end testing.
 
-- 🌱 I’m currently learning **Python , Selenium , Pytest**
+---
+## 🎯 Objective
+- Automate **key e-commerce functionalities** to ensure reliability and efficiency.
+- Enhance **test coverage** and reduce **manual efforts**.
+- Validate the **User Interface (UI)** across devices.
+- Ensure **cross-browser compatibility**.
+- Generate **detailed reports** with logs and screenshots.
 
-- 👨‍💻 All of my projects are available at [https://github.com/brbhavesh63/AutomationExceriseApp.git](https://github.com/brbhavesh63/AutomationExceriseApp.git)
+---
+## 🛠 Technology Stack
+- **Programming Language:** Python 
+- **Automation Tool:** Selenium WebDriver
+- **Testing Framework:** Pytest
+- **Design Pattern:** Page Object Model (POM)
+- **Configuration Management:** `config.ini`
+- **Reporting:** `pytest-html`
+- **Logging & Debugging:** Custom logging, Screenshots on failure
 
-- 📫 How to reach me **brbhavesh63@gmail.com**
+---
+## 📂 Project Structure
+```
+AutomationExercise/
+│-- TestCases/          # Contains all test scripts
+│-- Locators/           # Stores page locators used in POM
+│-- Utilities/          # Includes helper functions (readproperties.py)
+│-- Configurations/     # Contains config.ini for environment settings
+│-- .idea/              # IDE-specific configurations (PyCharm)
+```
 
-- 📄 Know about my experiences [https://www.dropbox.com/scl/fo/lbpg7djtb2hrcljrcwt3l/APN_ca6mAU5VjEmxQCcfDYc?rlkey=l425w2hnegxsduxkrkyap41cg&st=0l9ns713&dl=0](https://www.dropbox.com/scl/fo/lbpg7djtb2hrcljrcwt3l/APN_ca6mAU5VjEmxQCcfDYc?rlkey=l425w2hnegxsduxkrkyap41cg&st=0l9ns713&dl=0)
+---
+## 🔧 Features
+- ✅ **End-to-End Test Automation**
+- 🔄 **Reusable & Maintainable POM-based Design**
+- 🌍 **Cross-Browser & Mobile-Friendly Testing**
+- 📊 **Data-Driven Testing with Configurable Inputs**
+- ⚡ **Parallel Test Execution for Efficiency**
+- 📜 **Custom Logging & HTML Reporting**
+- 📷 **Screenshot Capture on Test Failure**
 
-<h3 align="center">Languages and Tools:</h3>
-<p align="center"> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://grafana.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="grafana" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.selenium.dev" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/selenium-logo.svg" alt="selenium" width="40" height="40"/> </a> </p>
+---
+## 📝 Automated Test Scenarios
+### 👤 User Management
+- Registration (Valid & Invalid Scenarios)
+- Login & Logout
+- Account Deletion
 
-<p align="center"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=brbhavesh63&show_icons=true&locale=en&layout=compact" alt="brbhavesh63" /></p>
+### 🛍 Product Management
+- Searching & Filtering Products
+- Adding/Removing Items from the Cart
+
+### 🛒 Shopping & Checkout
+- Cart Operations
+- Payment Validation
+- Order Confirmation
+
+### 📌 Profile & Address Management
+- Editing User Profile
+- Adding/Updating Addresses
+
+### 📧 Contact Forms & Error Handling
+- Testing Contact Us form
+- Validating error messages
+
+### 🌎 UI & Cross-Browser Testing
+- Checking responsive design
+- Testing on Chrome, Firefox, Edge, Safari
+
+---
+## ⚠️ Challenges & Solutions
+| Challenge | Solution |
+|-----------|----------|
+| Handling dynamic elements | Implemented **explicit waits** |
+| Managing popups & alerts | Used **Selenium’s alert handling** |
+| Synchronization issues | Applied **WebDriverWait** |
+| Captcha & OTP handling | Used manual intervention/mock APIs |
+
+---
+## 🚀 Future Enhancements
+- 🔄 **API Testing** using Postman or REST Assured
+- ☁️ **Cloud Testing** with BrowserStack/Selenium Grid
+- ⏳ **Performance Testing** for website speed optimization
+
+---
+## 🏁 Conclusion
+This automation framework ensures **high-quality software testing** with maximum efficiency. By leveraging **Selenium, Pytest, and POM**, it improves reliability, reduces manual efforts, and provides **comprehensive test coverage**. This project is a stepping stone for creating robust **CI/CD-ready test automation suites**.
+
+🔥 **Automate Smart, Test Faster!** 🔥
