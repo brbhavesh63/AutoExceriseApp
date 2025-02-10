@@ -39,8 +39,6 @@ AutomationExercise/
 - 🌍 **Cross-Browser & Mobile-Friendly Testing**
 - 📊 **Data-Driven Testing with Configurable Inputs**
 - ⚡ **Parallel Test Execution for Efficiency**
-- 📜 **Custom Logging & HTML Reporting**
-- 📷 **Screenshot Capture on Test Failure**
 
 ---
 ## 📝 Automated Test Scenarios
@@ -55,7 +53,7 @@ AutomationExercise/
 
 ### 🛒 Shopping & Checkout
 - Cart Operations
-- Payment Validation
+- Price Validation
 - Order Confirmation
 
 ### 📌 Profile & Address Management
@@ -77,13 +75,14 @@ AutomationExercise/
 | Handling dynamic elements | Implemented **explicit waits** |
 | Managing popups & alerts | Used **Selenium’s alert handling** |
 | Synchronization issues | Applied **WebDriverWait** |
-| Captcha & OTP handling | Used manual intervention/mock APIs |
 
 ---
 ## 🚀 Future Enhancements
 - 🔄 **API Testing** using Postman or REST Assured
 - ☁️ **Cloud Testing** with BrowserStack/Selenium Grid
 - ⏳ **Performance Testing** for website speed optimization
+- 📜 **Custom Logging & HTML Reporting** for logging and debugging
+- 📷 **Screenshot Capture on Test Failure** for test failure and pass references
 
 ---
 ## 🏁 Conclusion
