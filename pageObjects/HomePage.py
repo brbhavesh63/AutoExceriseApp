@@ -32,6 +32,7 @@ class HomePage:
     div_allcategory_xpath = 'div/h4/a'
     div_subcategory_xpath = 'div/div/ul/li/a'
     div_fullsubcategory_xpath = '//*[@id="accordian"]/div/div/div/ul/li/a'
+    div_productsRecommend_xpath = '//*[@id="recommended-item-carousel"]//*[@class="productinfo text-center"]'
 
 
 
@@ -138,6 +139,12 @@ class HomePage:
                     subcategory_ele.click()
                     break
 
+    def addRecommendProductToCart(self):
+        list_products = self.driver.find_elements(By.XPATH, self.div_productsRecommend_xpath)
+        print(len(list_products))
+        for product in list_products:
+            product.find_element(By.XPATH, "a/i").click()
+            break
 
 
 
