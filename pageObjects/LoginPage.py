@@ -20,9 +20,11 @@ class LoginPage:
 
 
     def setEmail(self,email):
+        self.driver.find_element(By.XPATH, self.txtbox_email_xpath).clear()
         self.driver.find_element(By.XPATH,self.txtbox_email_xpath).send_keys(email)
 
     def setPassword(self,password):
+        self.driver.find_element(By.XPATH, self.txtbox_password_xpath).clear()
         self.driver.find_element(By.XPATH, self.txtbox_password_xpath).send_keys(password)
 
     def clickLogin(self):
