@@ -1,4 +1,5 @@
-
+import allure
+import pytest
 
 from Utilities.readproperties import readConfig
 from pageObjects.CartPage import CartPage
@@ -20,6 +21,8 @@ class Test_016_LoginBeforeCheckout:
     expiremonth = readConfig.getExpireMonth()
     expireyear = readConfig.getExpireYear()
 
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.NORMAL)
     def test_LoginBeforeCheckout(self,setup):
 
         self.driver = setup

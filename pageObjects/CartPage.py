@@ -1,3 +1,5 @@
+import allure
+from allure_commons.types import AttachmentType
 from selenium.webdriver.common.by import By
 from pageObjects.ProductDetailPage import ProductDetailPage
 from pageObjects.ProductPage import ProductPage
@@ -30,6 +32,7 @@ class CartPage:
     def verifyTitle(self):
         act_title = self.driver.title
         assert act_title == 'Automation Exercise - Checkout'
+        allure.attach(self.driver.screenshot, name="TitleCheckout", attachment_type=AttachmentType.PNG)
 
     def scrollDowntoFooter(self):
         # subscription_txt = self.driver.find_element(By.XPATH,self.lbl_subscription_xpath)
@@ -38,7 +41,8 @@ class CartPage:
 
     def verifySubscription(self):
         subscription_txt = self.driver.find_element(By.XPATH,self.lbl_subscription_xpath).text
-        assert subscription_txt == 'SUBSCRIPTION'
+        assert subscription_txt == 'SUBSCRIPTIO'
+        allure.attach(self.driver.screenshot, name="subscribe", attachment_type=AttachmentType.PNG)
 
     def sendEmail(self):
         self.driver.find_element(By.XPATH , self.txtbox_email_xpath).send_keys('brbhavesh@gmail.com')

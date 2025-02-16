@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from Utilities.readproperties import readConfig
@@ -13,6 +14,7 @@ class Test_005_AlreadyUser:
     email = readConfig.getLoginvalidEmail()
 
     @pytest.mark.regression
+    @allure.severity(allure.severity_level.MINOR)
     def test_existinguser(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

@@ -1,5 +1,6 @@
 import time
-
+import allure
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -79,6 +80,7 @@ class HomePage:
         if successmsg.is_displayed:
             assert "You have been successfully subscribed!" == successmsg_txt
         else:
+            allure.attach(self.driver.screenshot,name="testSubscribe",attachment_type=AttachmentType.PNG)
             assert False
 
     def clickCart(self):

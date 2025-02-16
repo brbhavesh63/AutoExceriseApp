@@ -1,3 +1,6 @@
+import allure
+import pytest
+
 from pageObjects.CartPage import CartPage
 from pageObjects.HomePage import HomePage
 from Utilities.readproperties import readConfig
@@ -6,6 +9,8 @@ from Utilities.readproperties import readConfig
 class Test_011_Cart:
     baseURL = readConfig.getApplicationURL()
 
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.MINOR)
     def test_subscribecart(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

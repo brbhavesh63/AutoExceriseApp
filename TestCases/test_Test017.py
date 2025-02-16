@@ -1,5 +1,8 @@
 import time
 
+import allure
+import pytest
+
 from Utilities.readproperties import readConfig
 from pageObjects.CartPage import CartPage
 from pageObjects.HomePage import HomePage
@@ -8,6 +11,8 @@ from pageObjects.HomePage import HomePage
 class Test017_RemoveProducts:
     baseURL = readConfig.getApplicationURL()
 
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_RemoveProducts(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

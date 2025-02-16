@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from Utilities.readproperties import readConfig
@@ -14,6 +15,7 @@ class Test_006_Contactus:
     message = readConfig.getMessage()
 
     @pytest.mark.regression
+    @allure.severity(allure.severity_level.MINOR)
     def test_contactForm(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

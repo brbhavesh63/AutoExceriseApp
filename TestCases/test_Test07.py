@@ -1,3 +1,5 @@
+import allure
+import pytest
 from selenium import webdriver
 
 from TestCases.conftest import setup
@@ -10,6 +12,8 @@ class Test_007_TestCase :
 
     baseURL = readConfig.getApplicationURL()
 
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.MINOR)
     def test_TestcaseValidate(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

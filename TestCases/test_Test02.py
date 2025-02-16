@@ -1,3 +1,4 @@
+import allure
 import pytest
 from selenium import webdriver
 
@@ -5,6 +6,7 @@ from pageObjects.HomePage import HomePage
 from pageObjects.LoginPage import LoginPage
 from Utilities.readproperties import readConfig
 
+@allure.severity(allure.severity_level.CRITICAL)
 class Test_002_ValidLogin:
     baseURL = readConfig.getApplicationURL()
     email = readConfig.getLoginvalidEmail()
@@ -12,6 +14,7 @@ class Test_002_ValidLogin:
 
     @pytest.mark.sanity
     @pytest.mark.regression
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_validLogin(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

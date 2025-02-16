@@ -1,5 +1,8 @@
 import time
 
+import allure
+import pytest
+
 from TestCases import test_Test01
 from Utilities.readproperties import readConfig
 from pageObjects.CartPage import CartPage
@@ -32,6 +35,9 @@ class Test_014_RegisterWhileCheckout:
     expiremonth = readConfig.getExpireMonth()
     expireyear = readConfig.getExpireYear()
 
+    @pytest.mark.sanity
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_RegisterWhileCheckout(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

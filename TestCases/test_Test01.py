@@ -1,9 +1,12 @@
+import allure
 import pytest
 from selenium import webdriver
 from pageObjects.ReigsterPage import RegisterPage
 from pageObjects.HomePage import HomePage
 from Utilities.readproperties import readConfig
 
+
+@allure.severity(allure.severity_level.NORMAL)
 class Test_001_Signup:
 
     baseURL = readConfig.getApplicationURL()

@@ -1,3 +1,6 @@
+import allure
+import pytest
+
 from Utilities.readproperties import readConfig
 from pageObjects.HomePage import HomePage
 from pageObjects.ProductDetailPage import ProductDetailPage
@@ -11,6 +14,9 @@ class Test021_AddReview:
     reviewemail = readConfig.getReviewerEmail()
     reviewdesc = readConfig.getReviewerDesc()
 
+
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.NORMAL)
     def test_AddReview(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

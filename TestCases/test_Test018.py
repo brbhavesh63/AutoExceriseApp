@@ -1,3 +1,6 @@
+import allure
+import pytest
+
 from TestCases.conftest import setup
 from Utilities.readproperties import readConfig
 from pageObjects.HomePage import HomePage
@@ -8,6 +11,8 @@ class Test018_ViewCategoryProducts:
 
     baseURL = readConfig.getApplicationURL()
 
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_ViewCategoryProducts(self,setup):
 
         self.driver = setup

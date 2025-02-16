@@ -1,5 +1,6 @@
 import time
 
+import allure
 import pytest
 
 from TestCases.conftest import setup
@@ -15,6 +16,7 @@ class Test_004_Logout:
 
     @pytest.mark.sanity
     @pytest.mark.regression
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_logout(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

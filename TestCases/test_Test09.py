@@ -1,3 +1,6 @@
+import allure
+import pytest
+
 from Utilities.readproperties import readConfig
 from pageObjects.HomePage import HomePage
 from pageObjects.ProductPage import ProductPage
@@ -7,6 +10,8 @@ class Test_009_SearchProduct:
 
     baseURL = readConfig.getApplicationURL()
 
+    @pytest.mark.regression
+    @allure.severity(allure.severity_level.NORMAL)
     def test_Search(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from Utilities.readproperties import readConfig
@@ -12,6 +13,7 @@ class Test03_LoginDDT:
     file_path = "C:\\Users\\Bhavesh\\PycharmProjects\\AutoExceriseApp\\TestData\\LoginData.xlsx"
 
     @pytest.mark.regression
+    @allure.severity(allure.severity_level.NORMAL)
     def test_LoginDDT(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

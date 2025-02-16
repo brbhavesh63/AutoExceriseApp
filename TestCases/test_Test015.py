@@ -1,5 +1,8 @@
 import time
 
+import allure
+import pytest
+
 from TestCases import test_Test01
 from Utilities.readproperties import readConfig
 from pageObjects.CartPage import CartPage
@@ -8,7 +11,9 @@ from pageObjects.HomePage import HomePage
 from pageObjects.PaymentPage import PaymentPage
 from pageObjects.ReigsterPage import RegisterPage
 
-
+@pytest.mark.regression
+@pytest.mark.sanity
+@allure.severity(allure.severity_level.CRITICAL)
 class Test_015_RegisterBeforeCheckout:
 
     baseURL = readConfig.getApplicationURL()
