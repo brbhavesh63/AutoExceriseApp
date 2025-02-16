@@ -22,6 +22,8 @@ class Test_001_Signup:
     mobile = readConfig.getMobile()
     state = readConfig.getState()
 
+    @pytest.mark.sanity
+    @pytest.mark.regression
     def test_signup(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

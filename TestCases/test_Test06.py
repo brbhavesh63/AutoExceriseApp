@@ -1,3 +1,5 @@
+import pytest
+
 from Utilities.readproperties import readConfig
 from pageObjects.HomePage import HomePage
 from pageObjects.ContactusPage import ContactUs
@@ -11,6 +13,7 @@ class Test_006_Contactus:
     subject = readConfig.getSubject()
     message = readConfig.getMessage()
 
+    @pytest.mark.regression
     def test_contactForm(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)

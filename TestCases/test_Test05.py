@@ -1,6 +1,9 @@
+import pytest
+
 from Utilities.readproperties import readConfig
 from pageObjects.HomePage import HomePage
 from pageObjects.ReigsterPage import RegisterPage
+
 
 
 class Test_005_AlreadyUser:
@@ -9,6 +12,7 @@ class Test_005_AlreadyUser:
     name = readConfig.getName()
     email = readConfig.getLoginvalidEmail()
 
+    @pytest.mark.regression
     def test_existinguser(self,setup):
         self.driver = setup
         self.driver.get(self.baseURL)
